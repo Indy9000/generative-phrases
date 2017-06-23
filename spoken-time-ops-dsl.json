@@ -1,0 +1,77 @@
+{
+"parts-of-day":["morning","afternoon","evening","night"],
+"parts-of-day1":["midday","mid day","mid afternoon","mid night","midnight","tonight"],
+"parts-of-week":["yesterday","today","tomorrow","day after tomorrow"],
+"parts-of-week1":["weekend","week"],
+"numbers-to-10":["one","two","three","four","five","six","seven","eight","nine"],
+"numbers-to-20":["ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen"],
+"numbers-deca":["ten","twenty","thirty","fourty","fifty"],
+"numbers-deca1":["sixty","seventy","eighty","ninety","hundred"],
+"time-qty":["second","minute","hour","day","week","weekend","month","year"],
+"meridiems":["am","pm"], 
+"weekday":["monday","tuesday","wednesday","thursday","friday","saturday","sunday"],
+"months":["january","february","march","april","may","june","july","august","september","october","november","december"],
+
+//RULES
+"time-spec0":["#numbers-to-10#",   									// 1,12
+			  "#numbers-to-10# #numbers-deca#",						// 1:20
+			  "#numbers-to-10# #numbers-deca# #numbers-to-10#"		// 1:25
+			 ]
+,
+"time-spec1":["#numbers-to-10# #meridiems#",   									// 1 am,12 pm
+			  "#numbers-to-10# #numbers-deca# #meridiems#",						// 1:20 am
+			  "#numbers-to-10# #numbers-deca# #numbers-to-10# #meridiems#"		// 1:25 am
+			 ]
+,
+"time-spec2":["#weekday# next"]											// tuesday next
+,
+"time-spec3":["#parts-of-week#"]										// tomorrow
+,
+"time-spec4":["this #parts-of-day#","next #parts-of-day#"] 				// this morning, next morning
+,
+"time-spec5":["this #parts-of-week1#","next #parts-of-week1#"] 			// this weekend, next weekend
+,	 
+"time-duration1":["between #time-spec1# and #time-spec1#", 				//between 1am and 2am, between 1:20am and 2am
+				  "from #time-spec1# to #time-spec1#",					//from 3pm to 4pm
+				  "#time-spec0# to #time-spec0# #meridiems#",			//3 to 4pm, 3:30 to 4pm
+				  "#time-spec1# to #time-spec1#",						//3pm to 4pm
+				  "between #time-spec0# and #time-spec0# #meridiems#",	//between 1 and 3 pm
+				  "from #time-spec0# to #time-spec0# #meridiems#",		//from 1 to 3am
+				  "from #time-spec0# #meridiems#"						//from 2pm
+				 ]    
+,	
+"time-duration2":["from #parts-of-day#"]							//from morning, from mid day
+,
+"time-duration3":["from #weekday#",									//from monday
+				  "from #weekday# to #weekday#",				    //from monday to wednesday
+				  "#weekday# to #weekday#",							//monday to wednesday	
+				  "from #parts-of-week#",							//from tomorrow
+				  "between #parts-of-day# and #parts-of-day#",		//between morning and afternoon
+				  "between #weekday# and #weekday#"					//between monday and wednesday
+				  ]
+,
+"time-recurrance1":["every #parts-of-day#"], 				//every morning
+"time-recurrance2":["every #time-qty#"],					//every day, every week
+"time-recurrance3":["every #numbers-deca# #time-qty#s"], 	//every ten seconds
+"time-recurrance4":["every #numbers-to-10# #time-qty#s"],	//every 2 minutes
+"time-recurrance5":["every #numbers-to-20# #time-qty#s"]	//every 15 seconds
+,
+"origin":[
+			"what's going on #time-duration1# on #weekday#?",		//what's going on between two and three pm on tuesday
+			"am I free #time-duration1# on #weekday#?",			//am I'm free two to three pm on tuesday?
+			"am I free #time-duration1# #parts-of-week#?", 		//am I'm free two to three pm today?
+			"am I free #time-duration2#?",						//am I'm free from afternoon?
+			"what's the weather #parts-of-week#?",					//what's the weather tomorrow
+			"what's the weather #time-spec4#?",						//what's the weather 
+			"what's the weather #parts-of-day1#?",					//what's the weather tonight
+			"what's the forecast for #parts-of-week#?",				//what's the forecast for this week
+			"what's the forecast for #parts-of-day#?",				//what's the forecast for evening
+			"am I busy this #parts-of-day#?",						//am I busy this evening
+			"how does my schedule look like #parts-of-week#?",		//how does my schedule look like this week?
+			"how does my schedule look like on #weekday#?",			//how does my schedule look like on monday
+			"how does my schedule look like #time-spec4#?",			//how does my schedule look like this evening
+			"how does my schedule look like #time-spec5#?",			//how does my schedule look like this weekend
+			"remind me to take a picture with Amy in #numbers-deca# #time-qty#s?",						//remind me to take a picture with Amy in ten minutes
+			"I want to go jogging #time-recurrance1# at #numbers-to-10# can you remind me please?"		//I want to go jogging every morning at six can you remind me please
+		]
+}
